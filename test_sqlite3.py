@@ -11,6 +11,7 @@ def sql_conn():
     except Error as e:
         print(e)
 
+# cursor represents the context of a particular statement and its associated results
 
 def sql_cr_table(con):
     cursorObj = con.cursor()  # get cursor object from connection
