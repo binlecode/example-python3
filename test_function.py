@@ -40,8 +40,13 @@ func_2('golf', [])
 
 # the example below shows variable arguments in different forms
 # note the ordering: *args must occur before **keywords
+
 def cheese_shop(kind, *arguments, **keywords):
+    print(f"type of arguments: {type(arguments)}") # arguments is a tuple
+    print(f"type of keywords: {type(keywords)}")   # keywords is a dictionary
+
     print("-- Do you have any", kind, "?")
+    
     if kind in arguments:
         print("-- We are happy to serve you with", kind)
     else:
