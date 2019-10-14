@@ -3,6 +3,9 @@
 # the iterator has __next__ instance method that returns an element for each iteration (the 
 # call to the __next__ method)
 
+# MyIterable class defines an internal iterator, see `test_iterator.py` for external iterator 
+# example.
+
 class MyIterable:
 
     def __init__(self, data=[]):
