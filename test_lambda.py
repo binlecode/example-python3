@@ -28,4 +28,9 @@ print(evn_pow_lst)
 sum = reduce(lambda a, b: a + b, evn_pow_lst)
 print(sum)
 
-
+# use lambda in list custom sort
+import random
+lst = [(i, random.randint(0, 100)) for i in range(1, 10, 2)] # list comprehension
+print(lst)  # each element is a tuple
+lst_sorted = lst.sort(key=lambda tpl: tpl[1])  # sort by 2nd element in tuple
+print(lst)
