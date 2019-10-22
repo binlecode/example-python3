@@ -30,3 +30,17 @@ print('fibo numbers:')
 for f in Fibo(100):
     print(f)
 
+# a fibo generator
+
+def fibogen(max=1000):
+    i = 0
+    b = 1
+    while i < max:
+        try:
+            yield i
+            i, b = b, i + b
+        except StopIteration:
+            break
+
+for f in fibogen(100):
+    print(f)
