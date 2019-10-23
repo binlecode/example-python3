@@ -5,6 +5,11 @@ attribute is internal state holding, property is external API
 
 # a literal (non pythonic) way of attribute getter/setter
 class Person:
+    # class level fields are declared outside of method, they are similar to Java
+    # static fields
+
+    # object fields are not declared outside of methods, to create one, just define 
+    # it in an instance method and link to 'self'
 
     def __init__(self, firstName, lastName):
         self.firstName = firstName
