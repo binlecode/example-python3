@@ -46,7 +46,8 @@ def gr2():
     di = 0
     while True:
         try:
-            dr = yield di
+            # yields di to caller, and waits until caller sends value and assign to dr
+            dr = yield di   
             print(f'echoing value times 10: {dr*10}')    
             di += 1
         except StopIteration:
@@ -54,9 +55,12 @@ def gr2():
             break
 
 g2 = gr2()
+# to activate generator to first yeild, use next() or send()
+# if use send() to reach the first yield, the argument MUST be None: g2.send(None)
 print('first msg from gr2:', next(g2))  # sends back 0, waiting for input (send() call)
-print('second msg from gr2:', g2.send(11)) # sends back 1, receiving 11
-print('third msg from gr2:', g2.send(22))  # sends back 2, receiving 22
+# send() both sends a value to the generator and returns the value yielded by the generator
+print('second msg from gr2:', g2.send(11)) # g2 receives 11 and returns (yields) 1 to caller
+print('third msg from gr2:', g2.send(22))  # g2 receives 22 and returns (yields) 2 to caller
 g2.close() # received stop signal, no sending back
 
 # Comparing above two functions gr_loop and gr2, the difference is that in gr2 the yield has 
