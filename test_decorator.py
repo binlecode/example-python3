@@ -93,3 +93,33 @@ bar2 = bar_dec_super(bar2)  # returns a wrapped function replacing the original
 bar2('abc', 2000, tag='for bar2')
 
 
+
+# since decorators are callable thus they can be stacked
+
+# d1 is a parameterized decorator
+def d1(note='notified'):
+    # to support argument in a decorator, a nested fuction is defined as the real decorator
+    # this way d1 becomes the higher-order function that can receive 'metadata' by arguments
+    def decor(func):  
+        print('apply d1 decorate', note)
+        return func
+    return decor
+
+def d2(func):
+    print('apply d2 decorator')
+    return func
+
+@d1()  # have to add '()' to explicitly use default argument value
+@d2
+def func():
+    print('running func')
+
+func()   # => d1(note='notified')(d2(func))
+
+@d2
+@d1(note='be careful')
+def func2():
+    print('running func2')
+
+func2()  # => d2(d1(note='be careful')(func2))
+
