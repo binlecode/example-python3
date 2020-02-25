@@ -3,6 +3,7 @@
 __pycache__
 .idea
 .vscode
+.python-version
 
 test_sqlite3.db
 

@@ -25,7 +25,7 @@ with futures.ThreadPoolExecutor(MAX_THREADS) as exctr:
 # returned by map. 
 # 
 # Often it’s preferable to get the results as they are ready, regardless of the order they were submitted. 
-# To do that, you need a combination of the Executor.submit method and the fu tures.as_completed function
+# To do that, you need a combination of the Executor.submit method and the futures.as_completed function
 
 print('### submit and as_complete example below ###')
 
